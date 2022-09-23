@@ -1,0 +1,51 @@
+<ion-content>
+  <section class="login">
+    <figure class="login__logo">
+      <img src="/assets/icon/logo_login.svg" alt="Logo BHD" />
+    </figure>
+    <form [formGroup]="loginForm" class="login__form" (ngSubmit)="login()">
+
+      <div class="bhd_form-control" [ngClass]="{'bhd_form-control--error': isFieldInvalid('user'), 'bhd_form-control--success': isFieldValid('user') }">
+        <em class="bhd-icon icon-user"></em>
+        <input
+          type="text"
+          placeholder="Documento de identidad"
+          name="user"
+          id="user"
+          formControlName="user"
+          appNumbersOnly
+          [onlyNumber]="true"
+          [maxlength]="lengthField.user.maxLength"
+        />
+      </div>
+
+      <div class="bhd_form-control" [ngClass]="{'bhd_form-control--error': isFieldInvalid('password'), 'bhd_form-control--success': isFieldValid('password') }">
+        <em class="bhd-icon icon-password"></em>
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+          id="password"
+          appNumbersOnly
+          formControlName="password"
+        />
+      </div>
+
+      <div class="login__form-toggle">
+        <ion-toggle></ion-toggle>
+        <label>RECUERDA MI USUARIO</label>
+      </div>
+
+      <ion-button class="bhd_btn bhd_btn--primary" type="submit">INICIAR SESIÓN</ion-button>
+
+      <div class="login__form-text">
+        <p>AYUDA PARA INICIAR SESIÓN</p>
+        <small>{{ dateVersionInfo }}</small>
+      </div>
+
+
+    </form>
+  </section>
+
+  <div class="mask-image"></div>
+</ion-content>

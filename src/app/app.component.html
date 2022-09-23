@@ -1,3 +1,52 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app class="trebuchet">
+  <ion-menu contentId="main-content" *ngIf="userData">
+    <ion-header>
+      <ion-toolbar>
+        <header>
+          <h2>{{ userData?.name }} {{ userData?.lastName }}</h2>
+          <button>
+            EDITAR PERFIL <ion-icon name="pencil-outline"></ion-icon>
+          </button>
+        </header>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="menu__content">
+      <ion-list lines="none">
+        <ion-item *ngFor="let item of listItemMenu" class="menu__item">
+          <img
+            [src]="'/assets/icon/' + item.icon + '.svg'"
+            slot="start"
+            alt="icon"
+          />
+          <ion-label
+            ><h3>{{ item?.title }}</h3>
+            <p>{{ item?.subtitle }}</p></ion-label
+          >
+        </ion-item>
+      </ion-list>
+      <hr />
+      <ion-list lines="none">
+        <ion-item *ngFor="let item of listOptionsItemMenu" class="menu__item">
+          <img
+            [src]="'/assets/icon/' + item.icon + '.svg'"
+            slot="start"
+            alt="icon"
+          />
+          <ion-label
+            ><h3>{{ item.title }}</h3>
+            <p>{{ item.subtitle }}</p></ion-label
+          >
+        </ion-item>
+      </ion-list>
+      <ion-text color="text">
+        <small>Versión: {{ version }}</small>
+      </ion-text>
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-button fill="clear" (click)="onLogout()">CERRAR SESIÓN</ion-button>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

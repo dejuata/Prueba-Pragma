@@ -8,10 +8,68 @@
 .bhd-icon {
   font-family: var(--BHDIcons);
   font-style: normal;
+  // display: inline-block;
+  background-color: transparent;
+  // border: 1px solid green;
+  // padding: 2px;
 }
 
 .icon-user {
   &:before {
     content: var(--icon-user);
+    font-size: 36px;
   }
 }
+
+.icon-password {
+  &:before {
+    content: var(--icon-password);
+    font-size: 36px;
+  }
+}
+
+.icon-config-resume {
+  width: 40px;
+  height: 40px;
+  &:before {
+    font-size: 40px;
+    content: var(--icon-config-resume);
+  }
+}
+
+.icon-transactions {
+  width: 40px;
+  height: 40px;
+  &:before {
+    font-size: 40px;
+    content: var(--icon-transactions);
+  }
+}
+
+.icon-offers {
+  width: 40px;
+  height: 40px;
+  &:before {
+    font-size: 40px;
+    content: var(--icon-offers);
+  }
+}
+
+.icon-accountSaving {
+  margin: 0 16px 0 0;
+  &:before {
+    content: var(--icon-accountSaving);
+    font-size: 48px;
+  }
+}
+
+.icon-creditCard {
+  margin: 0 16px 0 0;
+  &:before {
+    content: var(--icon-creditCard);
+    font-size: 48px;
+  }
+}
+
+// --icon-accountSaving: '\e907';
+// --icon-creditCard: '\e909';

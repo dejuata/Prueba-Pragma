@@ -1,0 +1,21 @@
+ion-content {
+  --background: var(--bhd-color-content-brackground);
+}
+
+ion-grid{
+  height: 100%;
+  padding: 0 24px;
+}
+
+ion-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.message {
+  h2 {
+    margin-bottom: 24px;
+  }
+}

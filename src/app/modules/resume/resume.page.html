@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title size="small">Mis productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="productAccountLength" class="mt">
+    <div class="resume-title resume-title--accounts">
+      CUENTAS ({{productsAccount.length}})
+    </div>
+
+    <ion-card
+      *ngFor="let product of productsAccount"
+      class="card"
+      [class]="product.borderClass"
+    >
+      <ion-item lines="none" class="card__header">
+        <em class="bhd-icon" [class]="product.icon" slot="start"></em>
+        <ion-text color="text">
+          <h4>{{ product.productNameCore }} - {{ product.productNumber }}</h4>
+        </ion-text>
+      </ion-item>
+
+      <ion-card-content class="card__content">
+        <ion-text color="text">
+          <p>
+            {{ product.currency }}$ {{ product.availableBalanceStr[0] }}.<span
+              >{{ product.availableBalanceStr[1] }}</span
+            >
+          </p>
+          <small>Balance disponible</small>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="productCreditsLength">
+    <div class="resume-title resume-title--credits">
+      TARJETAS DE CRÉDITO ({{productsCredits.length}})
+    </div>
+
+    <ion-card
+      *ngFor="let product of productsCredits"
+      class="card"
+      [class]="product.borderClass"
+    >
+      <ion-item lines="none" class="card__header">
+        <em class="bhd-icon" [class]="product.icon" slot="start"></em>
+        <ion-text color="text">
+          <h4>{{ product.productNameCore }} - {{ product.productNumber }}</h4>
+        </ion-text>
+      </ion-item>
+
+      <ion-card-content class="card__content">
+        <ion-text color="text">
+          <p>
+            {{ product.currency }}$ {{ product.availableBalanceStr[0] }}.<span
+              >{{ product.availableBalanceStr[1] }}</span
+            >
+          </p>
+          <small>Balance disponible</small>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

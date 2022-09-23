@@ -1,0 +1,68 @@
+ion-content {
+  --background: var(--bhd-color-content-brackground);
+}
+
+.resume {
+
+  &-title {
+    color: var(--white);
+    padding: 4px 24px 4px 12px;
+    font-size: var(--font-size-small);
+    width: fit-content;
+    border-radius: 0 4px 8px 0;
+
+    &--accounts {
+      background-color: var(--green-main);
+    }
+
+    &--credits {
+      background-color: var(--bhd-color-text-blue);
+    }
+  }
+}
+
+
+.card {
+  box-shadow: none;
+  border: 1px solid var(--borders);
+  border-radius: 0 8px 8px 0;
+
+  &--boder-ca {
+    border-left: 4px solid var(--green-main);
+  }
+
+  &--boder-cc {
+    border-left: 4px solid var(--bhd-color-text-blue);
+  }
+
+  &__header {
+    ion-text {
+      h4 {
+        font-size: var(--font-size-base);
+      }
+    }
+  }
+
+  &__content {
+    ion-text {
+      p {
+        font-size: 22px;
+        margin: 0;
+        line-height: 24px;
+
+        span {
+          font-size: 16px;
+        }
+      }
+
+      small {
+        // color: var(--bhd-color-subtext);
+        font-size: var(--font-size-xsmall);
+      }
+    }
+  }
+}
+
+.mt {
+  margin-top: 24px;
+}

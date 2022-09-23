@@ -13,6 +13,7 @@
   --ion-color-primary: var(--green-main);
   --bhd-color-titles: #738572;
   --bhd-color-text: #666666;
+  --ion-color-text: var(--bhd-color-text);
   --bhd-color-text-blue: #194083;
   --borders: rgba(204, 204, 204, .6);
   --bhd-color-content-brackground: #F7F8FA;
@@ -32,4 +33,9 @@
   --icon-offers: '\e963';
   --icon-accountSaving: '\e907';
   --icon-creditCard: '\e909';
+
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-xsmall: 12px;
+
 }

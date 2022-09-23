@@ -1,0 +1,11 @@
+ion-tab-bar {
+  --border: 2px solid var(--green-main);
+  height: 70px;
+}
+
+.icon-tab {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  margin-top: 2px;
+}

@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -31,4 +31,133 @@
   font-style: normal;
   font-weight: 400;
   src: url("./assets/fonts/TrebuchetMS.ttf");
+}
+
+:root[mode=ios] .trebuchet,
+:root[mode=md] .trebuchet{
+  --ion-font-family:  'Trebuchet MS'!important;
+  font-family:  'Trebuchet MS' !important;
+}
+
+/* INPUTS */
+
+input:focus {
+  outline: none;
+  // border: 1px solid #15a4e0;
+  background-color: var(--white);
+  box-shadow: 0px 6px 8px -6px rgba(0, 51, 161, 0.06),
+    0px 8px 16px -6px rgba(0, 51, 161, 0.06);
+}
+
+.bhd_form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // max-width: 388px;
+}
+
+.bhd_form-control input {
+  background-color: var(--white);
+  font-family: var(--Trebuchet);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--borders);
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px 12px 10px 46px;
+  transition: all 0.2s ease;
+  color: var(--bhd-color-text);
+  height: 40px;
+}
+
+.bhd_form-control input::-moz-placeholder {
+  color: #afafaf;
+}
+
+.bhd_form-control input:-ms-input-placeholder {
+  color: #afafaf;
+}
+
+.bhd_form-control input::placeholder {
+  color: #afafaf;
+}
+
+.bhd_form-control em {
+  position: absolute;
+  // border: 1px solid red;
+  // height: 40px;
+  width: 40px;
+  padding-left: 4px;
+  // padding: 4px;
+}
+
+.bhd_form-control--success input {
+  border-color: var(--green-main);
+}
+
+.bhd_form-control--error input {
+  border-color: var(--red-1);
+}
+
+.bhd_form-control--error input::-moz-placeholder {
+  color: var(--red-1);
+}
+
+.bhd_form-control--error input:-ms-input-placeholder {
+  color: var(--red-1);
+}
+
+.bhd_form-control--error input::placeholder {
+  color: var(--red-1);
+}
+
+/* BOTONES */
+.bhd_btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--Trebuchet);
+  font-size: var(--font-size-base);
+  // font-weight: 600;
+  line-height: 0;
+  width: 100%;
+  height: 42px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.bhd_btn--primary {
+  background-color: var(--green-main);
+  color: var(--white);
+}
+
+/* TOAST */
+.toast-custom-class {
+  --color: var(--black);
+  --border-color: var(--bhd-border-toast-danger);
+  --border-radius: 6px;
+  --border-style: solid;
+  --border-width: 1px;
+  --background: var(--bhd-background-toast-danger);
+}
+
+/* CUSTOM COLORS */
+.ion-color-text {
+  --ion-color-base: var(--ion-color-text);
+}
+
+ion-menu-button {
+  --color: var(--green-main);
+}
+
+ion-title {
+  --color: var(--bhd-color-titles);
+  text-align: center;
+}
+
+hr {
+  background-color: var(--borders);
 }

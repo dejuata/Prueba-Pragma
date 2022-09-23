@@ -1,0 +1,61 @@
+header {
+  padding: 24px 16px 16px 12px;
+
+  h2 {
+    margin: 0;
+    font-size: var(--font-size-base);
+    color: var(--black);
+    line-height: 24px;
+  }
+
+  button {
+    font-size: var(--font-size-xsmall);
+    background-color: transparent;
+    color: var(--bhd-color-subtext);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+  }
+}
+
+.menu {
+
+  &__item {
+
+    img {
+      margin-right: 16px;
+      height: 24px;
+      width: 24px;
+      stroke: red;
+    }
+
+    ion-label {
+      h3 {
+        color: var(--bhd-color-text);
+      }
+
+      p {
+        color: var(--bhd-color-subtext);
+      }
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    ion-text {
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    text-align: center;
+  }
+}
+
