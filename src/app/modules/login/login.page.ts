@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { LoginDTO } from '@app/core/interfaces/login.interface';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { ToastService } from '@app/core/services/toast/toast.service';
 import { numberRegex, alphanumericRegex } from '@shared/utils/regex';
 import { environment } from '@environments/environment';
+import { NavigationService } from '@app/core/services/navigation/navigation.service';
+import { BnNgIdleService } from 'bn-ng-idle';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   public loginForm: FormGroup;
   public lengthField = {
     user: {
@@ -28,7 +29,8 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private toastService: ToastService,
     private authService: AuthService,
-    private router: Router
+    private navigation: NavigationService,
+    private bnIdle: BnNgIdleService
   ) {
     this.buildForm();
   }
@@ -40,8 +42,6 @@ export class LoginPage implements OnInit {
   get passwordField() {
     return this.loginForm.get('password');
   }
-
-  ngOnInit() {}
 
   buildForm(): void {
     this.loginForm = this.formBuilder.group({
@@ -83,7 +83,7 @@ export class LoginPage implements OnInit {
 
       this.authService.login(data).subscribe((res: any) => {
         if (res.status) {
-          this.router.navigate(['dashboard']);
+          this.navigation.goToDashboard();
         }
       });
     } else {

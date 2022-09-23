@@ -7,4 +7,5 @@ export const environment = {
     version: '6.3.2',
     date: 'Noviembre 01 - 8:00 a.m.',
   },
+  timeout: 180 //seconds
 };

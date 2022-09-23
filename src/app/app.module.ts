@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from '@core/interceptors/auth-interceptor.service';
+import { BnNgIdleService } from 'bn-ng-idle';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { AuthInterceptor } from '@core/interceptors/auth-interceptor.service';
       useClass: AuthInterceptor,
       multi: true,
     },
+    BnNgIdleService
   ],
   bootstrap: [AppComponent],
 })
