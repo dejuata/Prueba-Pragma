@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(this.addAuthToken(request)).pipe(
-      catchError((requestError: HttpErrorResponse) => this.handleHttpError(requestError))
+      catchError((requestError: HttpErrorResponse) => this.handleHttpError(requestError, request))
     );
   }
 
@@ -39,7 +39,8 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   handleHttpError(
-    requestError: HttpErrorResponse
+    requestError: HttpErrorResponse,
+     request: HttpRequest<any>
   ) {
     if (requestError && requestError.status === 500) {
       this.authService.logout();

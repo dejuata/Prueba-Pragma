@@ -1,7 +1,7 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Injectable } from '@angular/core';
 import { LoginDTO } from '@core/interfaces/login.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { BehaviorSubject, of } from 'rxjs';
@@ -16,14 +16,17 @@ import { NavigationService } from '@core/services/navigation/navigation.service'
 export class AuthService {
   private readonly uriLogin = '/api/login';
   private currentUserSource = new BehaviorSubject<User>(null);
+  private http: HttpClient;
 
   constructor(
-    private http: HttpClient,
+    httpBackend: HttpBackend,
     private cookies: CookieService,
     private toastService: ToastService,
     private loadingService: LoadingService,
     private navigationService: NavigationService
-  ) {}
+  ) {
+    this.http = new HttpClient(httpBackend);
+  }
 
   login(dto: LoginDTO) {
     this.loadingService.showLoading();
@@ -47,6 +50,8 @@ export class AuthService {
         }),
         catchError((err) => {
           this.loadingService.hideLoading();
+          console.log(err);
+
           if(err.error.msg === 'Incorrect user or password') {
             const message = 'Documento de identidad y/o Contraseña incorrecta';
             this.toastService.presentErrorToast(message);
@@ -60,6 +65,7 @@ export class AuthService {
 
   logout() {
     this.cookies.deleteAll('/');
+    this.cookies.deleteAll('/dashboard');
     this.currentUserSource.next(null);
     this.navigationService.goToLogin();
   }

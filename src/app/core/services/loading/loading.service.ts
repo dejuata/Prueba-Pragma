@@ -19,6 +19,8 @@ export class LoadingService {
   }
 
   hideLoading() {
-    this.generalLoading.dismiss();
+    if (this.generalLoading) {
+      this.generalLoading.dismiss();
+    }
   }
 }
